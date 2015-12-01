@@ -4,7 +4,7 @@ var http = require("http");
 var redis = require("redis");
 var GreetingKernel = require("./lib/greeting-kernel");
 
-var redisClient = new redis.createClient();
+var redisClient = new redis.createClient(process.env.REDIS_PORT, process.env.REDIS_HOST);
 var greetingKernel = new GreetingKernel(redisClient);
 var server = new http.Server();
 
