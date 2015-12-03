@@ -1,0 +1,14 @@
+app:
+  image: hyeonjay/dockinar:1.0.0
+  cpu_shares: 500
+  mem_limit: 400000000
+  ports:
+    - "80:80"
+  environment:
+    - PORT=80
+    - REDIS_PORT=6379
+    - REDIS_HOST=redis
+  links:
+    - redis
+redis:
+  image: redis:3.0.5
